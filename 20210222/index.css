@@ -1,0 +1,150 @@
+body,ul {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* ul {
+    margin: 0px;
+} */
+
+nav>.head {
+    display:flex;
+    justify-content: space-between;
+}
+
+nav>.head>.title,.normal_menu {
+    margin: 5px;
+}
+
+.normal_menu {
+    display: flex;
+}
+
+ul li{
+    list-style-type: none;
+    width: 80px;
+    text-align: center;
+}
+
+nav>.head>.menu>.mobile_menu {
+    /* height: 80px; */
+    display: none;
+    justify-content: center;
+    cursor: pointer;
+}
+
+nav>.head>.menu>.mobile_menu>.lines {
+    width: 40px;
+}
+
+nav>.head>.menu>.mobile_menu>.lines>.line {
+    width: 30px;
+    height: 2px;
+    background-color: #000000;
+    margin: 8px auto;
+}
+
+.memo {
+    height: 300px;
+    display: flex;
+    background-color:#DEEEF7;
+    margin-bottom: 50px;
+    /* align-items:center;
+    justify-content:center; */
+}
+
+.memo>span {
+    font-size: 2em;
+    margin: auto;
+}
+
+section {
+    width: 1200px;
+    margin: 20px auto;
+}
+
+section>.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section>.row>.block {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    /* width: 300px; */
+    width: 25%;
+    /* height: 25%; */
+}
+
+section>.row>.block>.pic {
+    height: 200px;
+    /* padding: 5px 5px; */
+    /* background-color:blue; */
+    /* background-image: url(./imgs/photo-1510279770292-4b34de9f5c23.jpg); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position:center;
+    background-color:#DEEEF7;
+}
+
+section>.row>.block>.title {
+    text-align: center;
+    padding: 10px 0;
+    background-color:#DEEEF7;
+}
+
+#pic_1,#pic_5 {
+    background-image: url(./imgs/photo-1451188502541-13943edb6acb.jpg);
+}
+
+#pic_2,#pic_6 {
+    background-image: url(./imgs/photo-1510279770292-4b34de9f5c23.jpg);
+}
+
+#pic_3,#pic_7 {
+    background-image: url(./imgs/photo-1537346439163-eafb59bdc400.jpg);
+}
+
+#pic_4,#pic_8 {
+    background-image: url(./imgs/photo-1537819191377-d3305ffddce4.jpg);
+}
+
+@media (max-width:1200px) {
+
+    section {
+        width: 90%;
+        height: 90vh;
+    }
+
+    section>.row>.block {
+        width: 50%;
+        /* max-height: 50%; */
+    }
+
+    section>.row>.block>.pic {
+        height: 30vw;
+    }
+    
+}
+
+@media (max-width:600px) {
+
+    nav>.head>.menu>.normal_menu {
+        display: none;
+    }
+    
+    nav>.head>.menu>.mobile_menu {
+        display: flex;
+    }
+
+    section>.row>.block {
+        width: 100%;
+    }
+
+    section>.row>.block>.pic {
+        height: 60vw;
+    }
+}
