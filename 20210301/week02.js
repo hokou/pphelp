@@ -49,22 +49,27 @@ console.log("== 03 ==")
 
 function maxProduct(nums){
     // 請用你的程式補完這個函式的區塊 
-    let ans = 0;
-    for (let i=0;i<nums.length;i++) {
-        if (i <nums.length-1){
-            for (let j=i+1;j<nums.length;j++) {
-                let check = nums[i]*nums[j];
-                if (check >= ans){
-                    ans = check;
+    if (nums.length>=2){
+        let ans = nums[0]*nums[1];
+        for (let i=0;i<nums.length;i++) {
+            if (i <nums.length-1){
+                for (let j=i+1;j<nums.length;j++) {
+                    let check = nums[i]*nums[j];
+                    if (check >= ans){
+                        ans = check;
+                    }
                 }
             }
         }
+        console.log(ans);
+    } else {
+        console.log("error, length must >= 2");
     }
-    console.log(ans);
 }
 
 maxProduct([5, 20, 2, 6]);// 得到 120 因為 20 和 6 相乘得到最大值 
 maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
+maxProduct([-10, 2]);
 
 
 // 要求四 ( 請閱讀英文 ):演算法
@@ -122,3 +127,28 @@ function maxZeros(nums){
 maxZeros([0, 1, 0, 0]) // 得到 2
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4 
 maxZeros([1, 1, 1, 1, 1]) // 得到 0
+
+
+console.log("== 05-2 ==")
+
+function maxZeros2(nums){
+    // 請用你的程式補完這個函式的區塊 
+    let zeros_len = 0;
+    let max_len = 0;
+    for (let i=0;i<nums.length;i++) {
+        if(nums[i]==0) {
+            zeros_len++;
+            if (zeros_len>max_len){
+                max_len = zeros_len;
+            }
+        } else {
+            zeros_len = 0;
+            continue;
+        }
+    }
+    console.log(max_len)
+}
+
+maxZeros2([0, 1, 0, 0]) // 得到 2
+maxZeros2([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4 
+maxZeros2([1, 1, 1, 1, 1]) // 得到 0

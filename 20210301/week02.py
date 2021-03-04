@@ -46,19 +46,23 @@ print("== 03 ==")
 
 def maxProduct(nums):
     # 請用你的程式補完這個函式的區塊
-    ans = 0
-    for i in range(len(nums)):
-        if i < len(nums)-1:
-            for j in range(i+1,len(nums)):
-                # print(i,j,":",nums[i],nums[j])
-                check = nums[i]*nums[j]
-                if check >= ans:
-                    ans = check
-                # print(check,ans)
-    print(ans)
+    if len(nums)>=2:
+        ans = nums[0]*nums[1]
+        for i in range(len(nums)):
+            if i < len(nums)-1:
+                for j in range(i+1,len(nums)):
+                    # print(i,j,":",nums[i],nums[j])
+                    check = nums[i]*nums[j]
+                    if check >= ans:
+                        ans = check
+                    # print(check,ans)
+        print(ans)
+    else:
+        print("error, length must >= 2")
 
 maxProduct([5, 20, 2, 6]) # 得到 120 因為 20 和 6 相乘得到最大值 
 maxProduct([10, -20, 0, 3]) # 得到 30 因為 10 和 3 相乘得到最大值
+# maxProduct([-10, 2])
 
 
 # 要求四 ( 請閱讀英文 ):演算法
@@ -112,3 +116,24 @@ def maxZeros(nums):
 maxZeros([0, 1, 0, 0]) # 得到 2
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
 maxZeros([1, 1, 1, 1, 1]) # 得到 0
+
+
+print("== 05-2 ==")
+
+def maxZeros2(nums):
+    # 請用你的程式補完這個函式的區塊
+    zeros_len = 0
+    max_len = zeros_len
+    for i in range(len(nums)):
+        if nums[i] == 0:
+            zeros_len += 1
+            if zeros_len > max_len:
+                max_len = zeros_len
+        else:
+            zeros_len = 0
+
+    print(max_len)
+
+maxZeros2([0, 1, 0, 0]) # 得到 2
+maxZeros2([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
+maxZeros2([1, 1, 1, 1, 1]) # 得到 0
