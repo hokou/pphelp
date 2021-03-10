@@ -1,0 +1,143 @@
+body,ul {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+
+nav>.head {
+    display:flex;
+    justify-content: space-between;
+}
+
+nav>.head>.title,.normal_menu {
+    margin: 5px;
+}
+
+.normal_menu {
+    display: flex;
+}
+
+ul li{
+    list-style-type: none;
+    width: 80px;
+    text-align: center;
+}
+
+nav>.head>.menu>.mobile_menu {
+    /* height: 80px; */
+    display: none;
+    justify-content: center;
+    cursor: pointer;
+}
+
+nav>.head>.menu>.mobile_menu>.lines {
+    width: 40px;
+}
+
+nav>.head>.menu>.mobile_menu>.lines>.line {
+    width: 30px;
+    height: 2px;
+    background-color: #000000;
+    margin: 8px auto;
+}
+
+.memo {
+    height: 300px;
+    display: flex;
+    background-color:#DEEEF7;
+    margin-bottom: 50px;
+    /* align-items:center;
+    justify-content:center; */
+}
+
+.memo>span {
+    font-size: 2em;
+    margin: auto;
+}
+
+section {
+    width: 1200px;
+    margin: 20px auto;
+}
+
+section>.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+section>.row>.block {
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 25%;
+    /* height: 25%; */
+}
+
+section>.row>.block>.pic {
+    /* height: 0; */
+    padding-bottom: 68%;
+    /* padding: 5px 5px; */
+    background-image: url();
+    background-repeat: space;
+    background-size: 100% 100%;
+    background-position:center;
+    background-color:#DEEEF7;
+}
+
+section>.row>.block>.title {
+    height: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color:#DEEEF7;
+}
+section>.btn {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    margin: 30px auto;
+}
+section>.btn>#btn {
+    font-size: 25px;
+    width: 150px;
+    height: 50px;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    /* line-height: 20px; */
+    margin: auto;
+}
+
+@media (max-width:1200px) {
+
+    section {
+        width: 90%;
+        /* height: 90vh; */
+    }
+
+    section>.row>.block {
+        width: 50%;
+        /* max-height: 50%; */
+    }
+
+    
+}
+
+@media (max-width:600px) {
+
+    nav>.head>.menu>.normal_menu {
+        display: none;
+    }
+    
+    nav>.head>.menu>.mobile_menu {
+        display: flex;
+    }
+
+    section>.row>.block {
+        width: 100%;
+    }
+
+}
