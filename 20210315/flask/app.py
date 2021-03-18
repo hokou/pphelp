@@ -13,7 +13,7 @@ password_ans = "test"
 
 @app.route("/")
 def index():
-    print("index")
+    # print("index")
     return render_template("index.html")
 
 @app.route("/signin", methods=["POST"])
@@ -24,32 +24,32 @@ def signin():
         if name == name_ans and password == password_ans:
             session["username"] = name
             session["password"] = password
-            print("save session")
+            # print("save session")
             return redirect("/member")
         else:
-            print("no save session")
+            # print("no save session")
             return redirect("/error")
 
 @app.route("/signout", methods=["GET"])
 def signout():
     session.pop("username", None)
     session.pop("password", None)
-    print("signout del session")
+    # print("signout del session")
     return redirect(url_for("index"))
 
 @app.route("/member")
 def member():
     if "username" and "password" in session:
         name = session["username"]
-        print("member")
+        # print("member")
         return render_template("member.html", user=name)
     else:
-        print("not signin")
+        # print("not signin")
         return redirect(url_for("signout"))
 
 @app.route("/error")
 def error():
-    print("error")
+    # print("error")
     return render_template("error.html")
 
 if __name__ == "__name__":
