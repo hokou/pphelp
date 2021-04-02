@@ -1,0 +1,76 @@
+body,ul,input,button {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+nav {
+    height: 150px;
+    background-color: #223344;
+    display: flex;
+}
+
+nav>div {
+    margin: auto;
+    color: #ffffff;
+    font-size: 2em;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+section>.sign {
+    display: flex;
+    margin: 20px auto;
+    font-size: 22px;
+    padding: 10px;
+}
+
+section>.sign>form {
+    display: flex;
+    flex-direction: column;
+}
+
+section>.sign>form>div {
+    margin: 5px auto;
+}
+
+section>.sign>form>.usr>input {
+    width: 200px;
+    margin-left: 10px;
+}
+
+section>.sign>form>.btn {
+    display: flex;
+    width: 150px;
+    /* height: 50px; */
+    margin: 30px auto;
+}
+
+section>.sign>form>.btn>#btn_up,#btn_in {
+    width: 100px;
+    /* height: 50px; */
+    margin: auto;
+    padding: 5px;
+}
+
+hr {
+    height: 5px;
+    width:100%;
+}
+
+/* member error */
+
+section>.message {
+    display: flex;
+    margin: 20px auto;
+    flex-direction: column;
+    font-size: 22px;
+}
+
+section>.message>div {
+    margin:5px auto;
+}
