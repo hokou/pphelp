@@ -30,3 +30,12 @@
 ## week04：
 
 [https://github.com/hokou/pphelp/tree/main/20210315/flask](https://github.com/hokou/pphelp/tree/main/20210315/flask)  
+
+## week05：
+
+[https://github.com/hokou/pphelp/tree/main/20210322](https://github.com/hokou/pphelp/tree/main/20210322)  
+
+
+## week06：
+
+[https://github.com/hokou/pphelp/tree/main/20210329](https://github.com/hokou/pphelp/tree/main/20210329)  
