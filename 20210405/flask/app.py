@@ -3,7 +3,8 @@ from markupsafe import escape
 import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
-from webmodel import User
+from webmodel import db, User
+import json
 
 app = Flask(__name__,
             static_folder="static",
@@ -19,11 +20,13 @@ password = os.getenv("password")
 IP = os.getenv("IP")
 db_name = os.getenv("db_name")
 
+app.config['SQLALCHEMY_ECHO'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user_name}:{password}@{IP}:3306/{db_name}"
 
-db = SQLAlchemy(app)
-# db.init_app(app)
+# 已經 from webmodel import db
+# db = SQLAlchemy(app)
+db.init_app(app)
 
 error_code = {
     "1": "帳號或密碼錯誤",
@@ -117,6 +120,9 @@ def error():
 
 @app.route("/api/users")
 def api_users():
+    '''
+    查詢姓名 name
+    '''
     username = request.args.get('username')
     query = User.query.filter_by(username=username).first()
     data = username_query(query)
@@ -131,6 +137,42 @@ def username_query(query):
     elif query == None:
         data["data"] = None
     return data
+
+@app.route("/api/user", methods=["POST"])
+def api_user():
+    '''
+    修改姓名 name
+    '''
+    username = session["username"]
+    # print("user",username)
+    data = request.get_data()
+    data = json.loads(data)
+    # print("json",data)
+    newname = data["name"]
+    # print("new",newname)
+    ans = name_change(username,newname)
+    if ans == True:
+        redata = {"ok":True}
+    else:
+        redata = {"error":True}
+    return jsonify(redata)
+
+def name_change(username, newname):
+    try:
+        # 新增語句
+        # query = User.query.filter_by(username=username).update(dict(name=newname))
+        # query = User.query.filter_by(username=username).update({"name":newname})
+        query = User.query.filter_by(username=username).first()
+        # print(query.name)
+        query.name = newname
+        # print(query.name)
+        # db.session.add(query)
+        # db.session.merge(query)
+        db.session.commit()
+        session["name"] = newname
+        return True
+    except:
+        return False
 
 
 if __name__ == "__name__":
@@ -147,3 +189,8 @@ if __name__ == "__name__":
 #     for x in query_data:
 #         print(x)
 #     return 'ok'
+
+# sql_cmd = "SET SQL_SAFE_UPDATES = 0;"
+# db.engine.execute(sql_cmd)
+# sql_cmd = "SET SQL_SAFE_UPDATES = 1;"
+# db.engine.execute(sql_cmd)

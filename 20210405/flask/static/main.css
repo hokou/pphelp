@@ -75,10 +75,19 @@ section>.message>div {
     margin:5px auto;
 }
 
-section>.message>.title {
+section>.message>form {
+    display: flex;
+    flex-direction: column;
+}
+
+section>.message>form>div {
+    margin:5px auto;
+}
+
+section>.message>form>.title {
     font-weight:bold;
 }
 
-section>.message>div>.btn {
+section>.message>form>div>.btn {
     width:80px;
 }
